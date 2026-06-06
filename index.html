@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Love ❤️ | I'm Sorry</title>
+    
+    <!-- Meta Tags for SEO -->
+    <meta name="description" content="A digital love letter and apology website dedicated to the most special person. Expressing regret and love through memories and music.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for cute icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Background Audio Element -->
+    <!-- Defaulting to a beautiful, soft royalty-free piano instrumental -->
+    <audio id="bg-music" loop>
+        <source src="music/those_eyes.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Canvas for Floating Particle Effects (Hearts & Stars) -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Glassmorphic Navigation & Music Controller -->
+    <nav class="nav-bar" id="main-nav">
+        <div class="nav-logo">For My Love 💖</div>
+        <div class="nav-music-control">
+            <button id="music-btn" class="music-toggle-btn" aria-label="Toggle Music">
+                <i class="fas fa-music"></i>
+                <div class="equalizer">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </button>
+            <div class="volume-container">
+                <i class="fas fa-volume-down"></i>
+                <input type="range" id="volume-slider" min="0" max="1" step="0.05" value="0.5" aria-label="Adjust Volume">
+                <i class="fas fa-volume-up"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. Hero Section -->
+    <header class="hero-section" id="hero">
+        <div class="hero-bg-overlay" style="background-image: url('images/hero_illustration.png');"></div>
+        <div class="hero-glass-container">
+            <span class="cute-badge">🥺 A Message For You</span>
+            <h1 class="hero-title">To the Love of My Life ❤️</h1>
+            <p class="hero-subtitle">This website is my way of saying sorry and expressing what words alone cannot.</p>
+            <a href="#letter-section" class="btn btn-primary pulse-effect" id="read-heart-btn">
+                Please Read My Heart 💌
+            </a>
+        </div>
+        <div class="scroll-down-arrow">
+            <a href="#gallery-section"><i class="fas fa-chevron-down"></i></a>
+        </div>
+    </header>
+
+    <!-- 2. Photo Gallery Section -->
+    <section class="gallery-section" id="gallery-section">
+        <div class="section-container">
+            <h2 class="section-title">Our Beautiful Moments 📸</h2>
+            <p class="section-subtitle">Looking back at these makes me realize how precious our bond is. I want to protect it forever.</p>
+            
+            <div class="gallery-grid">
+                <!-- Gallery Item 1 -->
+                <div class="gallery-card polaroid" onclick="openLightbox(0)">
+                    <div class="polaroid-pin">📌</div>
+                    <div class="polaroid-img-wrapper">
+                        <img src="images/gallery_pic1.png" alt="Sunset Beach Walk">
+                    </div>
+                    <div class="polaroid-caption">❤️</div>
+                </div>
+
+                <!-- Gallery Item 2 -->
+                <div class="gallery-card polaroid" onclick="openLightbox(1)">
+                    <div class="polaroid-pin">📌</div>
+                    <div class="polaroid-img-wrapper">
+                        <img src="images/gallery_pic2.png" alt="Dancing in the Rain">
+                    </div>
+                    <div class="polaroid-caption">❤️</div>
+                </div>
+
+                <!-- Gallery Item 3 -->
+                <div class="gallery-card polaroid" onclick="openLightbox(2)">
+                    <div class="polaroid-pin">📌</div>
+                    <div class="polaroid-img-wrapper">
+                        <img src="images/gallery_pic3.png" alt="Happy Memories">
+                    </div>
+                    <div class="polaroid-caption">❤️</div>
+                </div>
+
+                <!-- Gallery Item 4 -->
+                <div class="gallery-card polaroid" onclick="openLightbox(3)">
+                    <div class="polaroid-pin">📌</div>
+                    <div class="polaroid-img-wrapper">
+                        <img src="images/memory_first_date.png" alt="Where It Began">
+                    </div>
+                    <div class="polaroid-caption">❤️</div>
+                </div>
+
+                <!-- Gallery Item 5 -->
+                <div class="gallery-card polaroid" onclick="openLightbox(4)">
+                    <div class="polaroid-pin">📌</div>
+                    <div class="polaroid-img-wrapper">
+                        <img src="images/memory_travel.png" alt="Conquering Heights">
+                    </div>
+                    <div class="polaroid-caption">❤️</div>
+                </div>
+
+                <!-- Gallery Item 6 -->
+                <div class="gallery-card polaroid" onclick="openLightbox(5)">
+                    <div class="polaroid-pin">📌</div>
+                    <div class="polaroid-img-wrapper">
+                        <img src="images/memory_cozy.png" alt="Warm Cozy Nights">
+                    </div>
+                    <div class="polaroid-caption">❤️</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Apology Counter Section -->
+    <section class="counter-section" id="counter-section">
+        <div class="section-container">
+            <h2 class="section-title">My Apology Counter 💔</h2>
+            <p class="section-subtitle">Numbers cannot express my feelings, but I want to show you my infinite regret.</p>
+            
+            <div class="counter-grid">
+                <!-- Card 1 -->
+                <div class="counter-card glass-card">
+                    <div class="counter-icon"><i class="fas fa-heart-broken"></i></div>
+                    <h3 class="counter-value" id="counter-sorry">1</h3>
+                    <p class="counter-label">Sorry</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="counter-card glass-card">
+                    <div class="counter-icon"><i class="fas fa-undo"></i></div>
+                    <h3 class="counter-value" id="counter-sorry-again">100</h3>
+                    <p class="counter-label">Sorry Again</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="counter-card glass-card">
+                    <div class="counter-icon"><i class="fas fa-infinity"></i></div>
+                    <h3 class="counter-value" id="counter-thousand">1000</h3>
+                    <p class="counter-label">A Thousand Sorries</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="counter-card glass-card">
+                    <div class="counter-icon"><i class="fas fa-heart"></i></div>
+                    <h3 class="counter-value" id="counter-infinite">∞</h3>
+                    <p class="counter-label">Infinite Sorries</p>
+                </div>
+            </div>
+
+            <!-- Sorry Meter -->
+            <div class="sorry-meter-container glass-card">
+                <h3>Endless Sorry Meter</h3>
+                <div class="meter-bar-wrapper">
+                    <div class="meter-bar" id="meter-fill"></div>
+                </div>
+                <div class="meter-status">
+                    <span>Regret Level: <strong id="meter-percentage">99.99990000%</strong></span>
+                    <span>Status: <strong class="sparkle-text">Increasing Infinitely ✨</strong></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Love Letter Section (Parchment Design) -->
+    <section class="letter-section" id="letter-section">
+        <div class="section-container">
+            <div class="parchment-container">
+                <div class="wax-seal">💌</div>
+                <h2 class="letter-title">A Letter From My Heart</h2>
+                
+                <div class="letter-content" id="letter-content-placeholder">
+                    <!-- Typing effect starts when this section is in viewport -->
+                    <p class="letter-text" id="typewriter-text">
+                        <!-- Custom content will be typed out dynamically via JS. If Javascript is disabled, this fallback will be shown: -->
+                        My Dearest,<br><br>
+                        I am writing this website to tell you how deeply sorry I am for my recent mistakes. Sometimes words fail me when we speak, but I wanted to build this special space for you to show how much you truly mean to me. I cherish every moment we share, from our quiet talks to our big adventures. I promise to listen more, care deeper, and be the partner you truly deserve.<br><br>
+                        Please take your time reading through this, and know that every pixel of this page was put together with love, regret, and the hope of making you smile again. I love you, now and forever.<br><br>
+                        Yours, <br>
+                        VAVA
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Memory Timeline Section -->
+    <section class="timeline-section" id="timeline-section">
+        <div class="section-container">
+            <h2 class="section-title">A Timeline of Our Love 🌸</h2>
+            <p class="section-subtitle">Remember these milestones? Each one is a golden thread in the tapestry of us.</p>
+            
+            <div class="timeline">
+                <!-- Timeline Item 1 -->
+                <div class="timeline-item left-item scroll-reveal">
+                    <div class="timeline-badge"><i class="fas fa-mug-hot"></i></div>
+                    <div class="timeline-panel glass-card">
+                        <div class="timeline-img-wrapper">
+                            <img src="images/memory_first_date.png" alt="First Date">
+                        </div>
+                        <span class="timeline-date">Our First Date</span>
+                        <h3>Where It All Started</h3>
+                        <p>The day we sat down for a cup of coffee and hours felt like minutes. I was nervous, but your smile made me feel instantly at home.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 2 -->
+                <div class="timeline-item right-item scroll-reveal">
+                    <div class="timeline-badge"><i class="fas fa-plane"></i></div>
+                    <div class="timeline-panel glass-card">
+                        <div class="timeline-img-wrapper">
+                            <img src="images/memory_travel.png" alt="First Trip">
+                        </div>
+                        <span class="timeline-date">Our First Adventure</span>
+                        <h3>Exploring the World</h3>
+                        <p>Hand in hand, conquering steep hills and watching gorgeous sunsets. Being with you in new places showed me how wonderful life can be.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 3 -->
+                <div class="timeline-item left-item scroll-reveal">
+                    <div class="timeline-badge"><i class="fas fa-home"></i></div>
+                    <div class="timeline-panel glass-card">
+                        <div class="timeline-img-wrapper">
+                            <img src="images/memory_cozy.png" alt="Our Dream Family">
+                        </div>
+                        <span class="timeline-date">Our Future</span>
+                        <h3>Our Dream Family</h3>
+                        <p>Dreaming of the cozy home we will build, the laughter of our future children, and growing old hand-in-hand. You are my forever home.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Reasons Why I Love You Section -->
+    <section class="reasons-section" id="reasons-section">
+        <div class="section-container">
+            <h2 class="section-title">Reasons Why I Love You 💖</h2>
+            <p class="section-subtitle">Just a few of the infinite things that make you the most amazing person in the world.</p>
+            
+            <div class="reasons-grid">
+                <!-- Reason Card 1 -->
+                <div class="reason-card glass-card scroll-reveal">
+                    <div class="reason-icon">🥺</div>
+                    <h3>Your Kind Soul</h3>
+                    <p>You have the most generous heart, always seeing the good in everyone and lifting up my spirits when I'm down.</p>
+                </div>
+                
+                <!-- Reason Card 2 -->
+                <div class="reason-card glass-card scroll-reveal">
+                    <div class="reason-icon">✨</div>
+                    <h3>Your Radiant Smile</h3>
+                    <p>The way your eyes crinkle when you laugh can instantly turn any bad day into a beautiful, bright one.</p>
+                </div>
+
+                <!-- Reason Card 3 -->
+                <div class="reason-card glass-card scroll-reveal">
+                    <div class="reason-icon">🌹</div>
+                    <h3>Your Gentle Support</h3>
+                    <p>You stand by me, believe in my dreams, and give me the strength to overcome any hurdle that comes our way.</p>
+                </div>
+
+                <!-- Reason Card 4 -->
+                <div class="reason-card glass-card scroll-reveal">
+                    <div class="reason-icon">🧸</div>
+                    <h3>Your Cozy Warmth</h3>
+                    <p>Simply being next to you, holding your hand, or sharing a hug feels like the safest, most peaceful place on earth.</p>
+                </div>
+
+                <!-- Reason Card 5 -->
+                <div class="reason-card glass-card scroll-reveal">
+                    <div class="reason-icon">💫</div>
+                    <h3>Your Beautiful Mind</h3>
+                    <p>I love our late-night conversations, your unique perspective, and how easy it is to talk to you about anything.</p>
+                </div>
+
+                <!-- Reason Card 6 -->
+                <div class="reason-card glass-card scroll-reveal">
+                    <div class="reason-icon">💞</div>
+                    <h3>Your Cute Quirks</h3>
+                    <p>From the way you make silly faces to your happy little dances—every little detail makes me love you more.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Cute GIF / Sticker Collage Section -->
+    <section class="collage-section" id="collage-section">
+        <div class="section-container">
+            <h2 class="section-title">A Little Collage of Us 💌</h2>
+            <p class="section-subtitle">Some cute illustrations to remind you how much you are loved and cherished.</p>
+            
+            <div class="collage-grid">
+                <!-- Collage Item 1 -->
+                <div class="collage-item sticker-float">
+                    <img src="images/cute_sticker1.png" alt="Chibi couple hugging sticker">
+                    <span class="sticker-tag">Big Hugs! 🤗</span>
+                </div>
+                
+                <!-- Collage Item 2 -->
+                <div class="collage-item sticker-float delay-1">
+                    <img src="images/cute_sticker2.png" alt="Fluffy cat holding a rose sticker">
+                    <span class="sticker-tag">For You 🌹</span>
+                </div>
+                
+                <!-- Collage Item 3 (Fallback elegant heart block/graphic) -->
+                <div class="collage-item sticker-float delay-2 glass-card cute-card-sticker">
+                    <div class="cute-emojis">🥺👉👈</div>
+                    <p>Forgive me please?</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Special Message Banner -->
+    <section class="special-message-section" id="special-message">
+        <div class="section-container">
+            <div class="special-message-card glass-card">
+                <div class="message-icon-pulse"><i class="fas fa-heart"></i></div>
+                <p class="message-text">
+                    "No matter how many mistakes I've made, my love for you has never changed. I am truly sorry and I hope you can forgive me. ❤️🥺"
+                </p>
+                <div class="sparkles-container">
+                    <i class="fas fa-sparkles"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="glowing-heart-wrapper">
+            <div class="glowing-heart"></div>
+        </div>
+        <p class="footer-tagline">Forever Yours ❤️</p>
+        <div class="footer-back-to-top">
+            <a href="#hero" class="back-to-top-btn" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></a>
+        </div>
+    </footer>
+
+    <!-- Custom Lightbox Modal -->
+    <div id="lightbox-modal" class="lightbox-modal" onclick="closeLightbox()">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <div class="lightbox-content-wrapper" onclick="event.stopPropagation()">
+            <img id="lightbox-img" src="" alt="Enlarged photo">
+            <div id="lightbox-caption" class="lightbox-caption"></div>
+            
+            <!-- Lightbox Nav Buttons -->
+            <button class="lightbox-prev" onclick="prevLightboxImage()"><i class="fas fa-chevron-left"></i></button>
+            <button class="lightbox-next" onclick="nextLightboxImage()"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script src="script.js"></script>
+</body>
+</html>
